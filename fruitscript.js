@@ -106,7 +106,7 @@ async function populateViewStocks() {
     // Clear existing table body content
     tableBody.innerHTML = '';
 
-    const response = await fetch('fruit-shop-server.vercel.app/fruits');
+    const response = await fetch('https://fruit-shop-server.vercel.app/fruits');
     const fruits = await response.json();
 
     // Loop through the fruits data and generate HTML for each row
@@ -133,7 +133,7 @@ async function populateMinimumStocks() {
     // Clear existing table body content
     tableBody.innerHTML = '';
 
-    const response = await fetch('fruit-shop-server.vercel.app/fruits/minimum-quantity');
+    const response = await fetch('https://fruit-shop-server.vercel.app/fruits/minimum-quantity');
     const fruits = await response.json();
 
     // Loop through the fruits data and generate HTML for each row
@@ -158,7 +158,7 @@ async function populateBillStocks() {
     // Clear existing table body content
     tableBody.innerHTML = '';
 
-    const response = await fetch('fruit-shop-server.vercel.app/fruits/bill-stocks');
+    const response = await fetch('https://fruit-shop-server.vercel.app/fruits/bill-stocks');
     const fruits = await response.json();
 
     // Loop through the fruits data and generate HTML for each row
@@ -179,7 +179,7 @@ async function populateBillStocks() {
 
 function populateProductDropdown() {
     // Fetch dropdown options from API endpoint
-    fetch('fruit-shop-server.vercel.app/fruits/names')
+    fetch('https://fruit-shop-server.vercel.app/fruits/names')
         .then(response => response.json())
         .then(data => {
             const dropdown = document.getElementById('product-dropdown');
@@ -197,7 +197,7 @@ function populateProductDropdown() {
 
 function populateProductDropdown2() {
     // Fetch dropdown options from API endpoint
-    fetch('fruit-shop-server.vercel.app/fruits/names')
+    fetch('https://fruit-shop-server.vercel.app/fruits/names')
         .then(response => response.json())
         .then(data => {
             const dropdown = document.getElementById('product-dropdown2');
@@ -221,7 +221,7 @@ function addStocks() {
     const sellingPrice = document.getElementById('selling-price-input').value;
 
     // Send POST request with collected data
-    fetch('fruit-shop-server.vercel.app/fruits/update-stock', {
+    fetch('https://fruit-shop-server.vercel.app/fruits/update-stock', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -264,7 +264,7 @@ async function addBillStock() {
         }
 
         // Send POST request to backend API
-        const response = await fetch('fruit-shop-server.vercel.app/fruits/bill-stock', {
+        const response = await fetch('https://fruit-shop-server.vercel.app/fruits/bill-stock', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -308,7 +308,7 @@ async function updateTotalAmount() {
         const totalAmountElement = document.getElementById('total-amount');
 
         // Fetch total amount from the server
-        const response = await fetch('fruit-shop-server.vercel.app/fruits/bill-amount');
+        const response = await fetch('https://fruit-shop-server.vercel.app/fruits/bill-amount');
         if (!response.ok) {
             throw new Error('Failed to fetch total amount');
         }
@@ -331,7 +331,7 @@ async function updateTotalAmount() {
 async function deleteAllBillStocks() {
     try {
         // Send POST request to delete all bill stocks
-        const response = await fetch('fruit-shop-server.vercel.app/fruits/bill-stocks/delete-all', {
+        const response = await fetch('https://fruit-shop-server.vercel.app/fruits/bill-stocks/delete-all', {
             method: 'POST'
         });
 
@@ -357,7 +357,7 @@ async function populateSellingStocks() {
 
     try {
         // Fetch selling stocks data from the server
-        const response = await fetch('fruit-shop-server.vercel.app/fruits/selling-stocks');
+        const response = await fetch('https://fruit-shop-server.vercel.app/fruits/selling-stocks');
         const sellingStocks = await response.json();
 
         // Loop through the selling stocks data and generate HTML for each row
